@@ -9,5 +9,8 @@ ul {
 	list-style-type: none;
 }
 .gamesLi{
-	height: 80px;
+	height: 60px;
+}
+#gameBox p{
+	font-size: 18px;
 }

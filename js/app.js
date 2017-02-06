@@ -42,17 +42,12 @@ $("#getInfo").on("click", function(e) {
 		});
 	})
 	function infoGame(data) {
-		console.log("!!!!!!")
 		var listInfoGames = data.results;
 		console.log(listInfoGames)
-		$("#gamebox").hide('fast', function() {
-			
-		});
-		$("#description").html(listInfoGames.deck)
-		$("#title").html(listInfoGames.aliases)
-		$("#releaseDate").html(listInfoGames.original_release_date)
+		$("#description").html('Description: ' + listInfoGames.deck)
+		$("#title").html('Title: ' + listInfoGames.name)
+		$("#releaseDate").html('Release Date: ' + listInfoGames.original_release_date)
+		$("#genre").html('Platform: ' + listInfoGames.platforms[0].abbreviation)
+		$("#platform").html('Genre: ' + listInfoGames.genres[0].name)
 		$("#imgGame").attr("src", listInfoGames.image.small_url)
-		$("#gamebox").show('slow', function() {
-			
-		});
 	}
