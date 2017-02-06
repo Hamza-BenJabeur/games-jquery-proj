@@ -1,3 +1,4 @@
+
 $("#getInfo").on("click", function(e) {
 		e.preventDefault();
 		var valueSearched = $("#valueSearched").val();
@@ -17,10 +18,10 @@ $("#getInfo").on("click", function(e) {
 	function gamer(data) {
 		console.log(data)
 		var listGames = data.results;
-		var tplOption = "<li ><a href='#'><%GAME-NAME%></a> <button value=<%GAME-ID%>> HEY LISTEN </button></li>"
+		var tplOption = "<li class='gamesLi'><a><%GAME-NAME%></a>	<button type='button' class='btn btn-primary' value=ID >Click for info</button>	</li>"
 		var optionsGames = listGames
 					.filter(game => game.resource_type == 'game' )
-					.map( game => tplOption.replace('<%GAME-NAME%>', game.name).replace('<%GAME-ID%>', game.api_detail_url) )
+					.map( game => tplOption.replace('<%GAME-NAME%>', game.name).replace('ID', game.api_detail_url) )
 		$("#listGames").html(optionsGames.join(''))
 	}
 
@@ -44,8 +45,14 @@ $("#getInfo").on("click", function(e) {
 		console.log("!!!!!!")
 		var listInfoGames = data.results;
 		console.log(listInfoGames)
+		$("#gamebox").hide('fast', function() {
+			
+		});
 		$("#description").html(listInfoGames.deck)
 		$("#title").html(listInfoGames.aliases)
 		$("#releaseDate").html(listInfoGames.original_release_date)
 		$("#imgGame").attr("src", listInfoGames.image.small_url)
+		$("#gamebox").show('slow', function() {
+			
+		});
 	}

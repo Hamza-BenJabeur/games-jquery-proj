@@ -1,7 +1,13 @@
 * {
 	font-family: 'Quicksand'
 }
+body{
+	background-color: #EEEEEE
+}
 ul {
 	font-size: 18px;
 	list-style-type: none;
+}
+.gamesLi{
+	height: 80px;
 }
